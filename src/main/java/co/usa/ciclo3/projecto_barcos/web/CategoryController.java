@@ -43,7 +43,7 @@ public class CategoryController {
     
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category saveBarcos(@RequestBody Category b){
+    public Category saveCategory(@RequestBody Category b){
         return categoryService.save(b);
     }
        

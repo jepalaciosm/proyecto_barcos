@@ -44,7 +44,7 @@ public class BoatController {
     
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Boat saveBarcos(@RequestBody Boat b){
+    public Boat saveBoat(@RequestBody Boat b){
         return boatService.save(b);
     }
        
