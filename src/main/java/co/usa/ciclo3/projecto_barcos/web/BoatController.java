@@ -5,7 +5,8 @@
 package co.usa.ciclo3.projecto_barcos.web;
 
 import co.usa.ciclo3.projecto_barcos.model.Barcos;
-import co.usa.ciclo3.projecto_barcos.service.BarcosService;
+import co.usa.ciclo3.projecto_barcos.model.Boat;
+import co.usa.ciclo3.projecto_barcos.service.BoatService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,26 +26,26 @@ import org.springframework.web.bind.annotation.RestController;
  * @author john0
  */
 @RestController
-@RequestMapping("/api/Barcos")
+@RequestMapping("/api/Boat")
 @CrossOrigin(origins="*", methods={RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
-public class BarcosController {
+public class BoatController {
     @Autowired
-    private BarcosService barcosService;
+    private BoatService boatService;
     
     @GetMapping("/all")
-    public List<Barcos> getBarcos(){
-        return barcosService.getAll();
+    public List<Boat> getBoats(){
+        return boatService.getAll();
     }
     
     @GetMapping("/{id}")
-    public Optional<Barcos> getBarco(@PathVariable("id") int id){
-        return barcosService.getBarco(id);
+    public Optional<Boat> getBoat(@PathVariable("id") int id){
+        return boatService.getBoat(id);
     }
     
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Barcos saveBarcos(@RequestBody Barcos b){
-        return barcosService.save(b);
+    public Boat saveBarcos(@RequestBody Boat b){
+        return boatService.save(b);
     }
        
 }
