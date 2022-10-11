@@ -4,6 +4,7 @@
  */
 package co.usa.ciclo3.projecto_barcos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -28,7 +29,8 @@ public class Category implements Serializable{
     private String description;
     
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
-    public List<Boat> boat;
+    @JsonIgnoreProperties("category")
+    public List<Boat> boats;
 
     public Integer getId() {
         return id;
@@ -54,12 +56,14 @@ public class Category implements Serializable{
         this.description = description;
     }
 
-    public List<Boat> getBoat() {
-        return boat;
+    public List<Boat> getBoats() {
+        return boats;
     }
 
-    public void setBoat(List<Boat> boat) {
-        this.boat = boat;
+    public void setBoats(List<Boat> boats) {
+        this.boats = boats;
     }
+
+   
    
 }
