@@ -4,14 +4,11 @@
  */
 package co.usa.ciclo3.projecto_barcos.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -28,10 +25,10 @@ public class Boat implements Serializable{
     private Integer year;
     private String name;
     private String description;
-    @ManyToOne
-    @JoinColumn(name="id")
-    @JsonIgnoreProperties("boats")
-    private Category category;
+    // @ManyToOne
+    // @JoinColumn(name="Categoryid")
+    // @JsonIgnoreProperties("boats")
+    // private Category category;
 
     public Integer getId() {
         return id;
@@ -55,14 +52,6 @@ public class Boat implements Serializable{
 
     public void setYear(Integer year) {
         this.year = year;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     public String getName() {
