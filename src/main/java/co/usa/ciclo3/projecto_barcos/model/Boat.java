@@ -26,13 +26,12 @@ public class Boat implements Serializable{
     private Integer id;
     private String brand;
     private Integer year;
-    
+    private String name;
+    private String description;
     @ManyToOne
     @JoinColumn(name="categoryId")
     @JsonIgnoreProperties("boats")
     private Category category;
-    private String name;
-    private String description;
 
     public Integer getId() {
         return id;
