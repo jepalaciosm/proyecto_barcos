@@ -28,6 +28,7 @@ public class Boat implements Serializable{
     private Integer year;
     private String name;
     private String description;
+    
     @ManyToOne
     @JoinColumn(name="categoryId")
     @JsonIgnoreProperties("boats")

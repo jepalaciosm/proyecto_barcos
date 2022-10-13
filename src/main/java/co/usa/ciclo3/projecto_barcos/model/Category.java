@@ -20,7 +20,7 @@ import javax.persistence.Table;
  * @author john0
  */
 @Entity
-@Table(name="Category")
+@Table(name="category")
 public class Category implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +28,8 @@ public class Category implements Serializable{
     private String name;
     private String description;
     
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "Category")
-    @JsonIgnoreProperties("Category")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
+    @JsonIgnoreProperties("category")
     public List<Boat> boats;
 
     public Integer getId() {
