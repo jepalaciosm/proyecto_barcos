@@ -25,7 +25,7 @@ public class Boat implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String brand;
-    private Integer year;
+    private Integer years;
     private String name;
     private String description;
     
@@ -50,12 +50,12 @@ public class Boat implements Serializable{
         this.brand = brand;
     }
 
-    public Integer getYear() {
-        return year;
+    public Integer getYears() {
+        return years;
     }
 
     public void setYear(Integer year) {
-        this.year = year;
+        this.years = year;
     }
 
     public String getName() {
