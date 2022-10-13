@@ -31,7 +31,7 @@ public class Boat implements Serializable{
     
     @ManyToOne
     @JoinColumn(name="categoryId")
-    @JsonIgnoreProperties("boats")
+    //@JsonIgnoreProperties("boats")
     private Category category;
 
     public Integer getId() {
