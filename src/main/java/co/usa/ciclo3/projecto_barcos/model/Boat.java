@@ -6,6 +6,7 @@ package co.usa.ciclo3.projecto_barcos.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,13 +20,14 @@ import javax.persistence.Table;
  * @author john0
  */
 @Entity
-@Table(name="Boat")
+@Table(name="boat")
 public class Boat implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String brand;
-    private Integer years;
+    @Column(name="years", nullable=false)
+    private Integer year;
     private String name;
     private String description;
     
@@ -50,12 +52,12 @@ public class Boat implements Serializable{
         this.brand = brand;
     }
 
-    public Integer getYears() {
-        return years;
+    public Integer getYear() {
+        return year;
     }
 
     public void setYear(Integer year) {
-        this.years = year;
+        this.year = year;
     }
 
     public String getName() {
