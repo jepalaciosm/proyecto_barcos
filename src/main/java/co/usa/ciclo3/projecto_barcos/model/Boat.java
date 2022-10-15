@@ -4,6 +4,7 @@
  */
 package co.usa.ciclo3.projecto_barcos.model;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -25,16 +26,17 @@ public class Boat implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String name;
     private String brand;
     @Column(name="years", nullable=false)
-    private Integer year;
-    private String name;
-    private String description;
-    
+    private Integer year;    
+    private String description;    
     @ManyToOne
-    @JoinColumn(name="category")
-    //@JsonIgnoreProperties("boats")
+    @JoinColumn(name="categoryId")
+    @JsonIgnoreProperties("boats")
     private Category category;
+    
+    
 
     public Integer getId() {
         return id;

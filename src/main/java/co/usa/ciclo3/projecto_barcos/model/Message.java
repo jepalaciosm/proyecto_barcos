@@ -23,5 +23,5 @@ public class Message  implements Serializable{
     private Integer id;
     private String messageText;
     private String client;
-    private String boat;
+    private Boat boat;
 }
