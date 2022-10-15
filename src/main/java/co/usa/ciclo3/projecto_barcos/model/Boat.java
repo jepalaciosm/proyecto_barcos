@@ -26,15 +26,16 @@ public class Boat implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
     private String brand;
     @Column(name="years", nullable=false)
-    private Integer year;    
-    private String description;    
+    private Integer year;
     @ManyToOne
     @JoinColumn(name="categoryId")
     @JsonIgnoreProperties("boats")
     private Category category;
+    private String name;        
+    private String description;    
+   
     
     
 
