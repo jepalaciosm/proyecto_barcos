@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author john0
  */
 @RestController
-@RequestMapping("/api/Client")
+@RequestMapping("/api/Reservation")
 @CrossOrigin(origins="*", methods={RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class ReservationController {
     @Autowired
