@@ -43,7 +43,7 @@ public class Boat implements Serializable{
     @JsonIgnoreProperties({"boat","client"})
     private List<Message> messages;   
    
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "tool")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "boat")
     @JsonIgnoreProperties({"boat","messages"})
     private List<Reservation> reservations;
 
