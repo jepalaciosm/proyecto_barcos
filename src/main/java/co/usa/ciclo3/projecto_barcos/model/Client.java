@@ -4,11 +4,15 @@
  */
 package co.usa.ciclo3.projecto_barcos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -20,26 +24,27 @@ import javax.persistence.Table;
 public class Client  implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String name;
+    private Integer idClient;
     private String email;
     private String password;
-    private Integer age;        
+    private String name;
+    private Integer age;  
+    
 
-    public Integer getId() {
-        return id;
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
+    @JsonIgnoreProperties("client")
+    private List<Message> messages;
+    
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
+    @JsonIgnoreProperties("client")
+    private List<Reservation> reservations;
+
+    public Integer getIdClient() {
+        return idClient;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setIdClient(Integer idClient) {
+        this.idClient = idClient;
     }
 
     public String getEmail() {
@@ -58,6 +63,14 @@ public class Client  implements Serializable{
         this.password = password;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Integer getAge() {
         return age;
     }
@@ -65,5 +78,23 @@ public class Client  implements Serializable{
     public void setAge(Integer age) {
         this.age = age;
     }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+   
             
 }
