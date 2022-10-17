@@ -5,9 +5,12 @@
 package co.usa.ciclo3.projecto_barcos.web;
 
 import co.usa.ciclo3.projecto_barcos.model.Reservation;
+import co.usa.ciclo3.projecto_barcos.repository.CountClient;
 import co.usa.ciclo3.projecto_barcos.service.ReservationService;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
+import co.usa.ciclo3.projecto_barcos.service.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -46,5 +49,19 @@ public class ReservationController {
     public Reservation saveReservation(@RequestBody Reservation b){
         return reservationService.save(b);
     }
-       
+    
+    @GetMapping("/report-clients")
+    public List<CountClient> getReservationsReportClient(){
+        return reservationService.getTopClients();
+    }
+    
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservationsReportDates(@PathVariable("dateOne") String dateOne,@PathVariable("dateTwo") String dateTwo) throws ParseException{
+        return reservationService.informePeriodoTiempoReservas(dateOne,dateTwo);
+    }
+    
+     @GetMapping("/report-status")
+    public Status getReservationsStatusReport(){
+        return reservationService.getReservationStatusReport();
+    }
 }
