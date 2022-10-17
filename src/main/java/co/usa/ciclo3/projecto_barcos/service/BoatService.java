@@ -69,4 +69,12 @@ public class BoatService {
             return b;
         }
     }
+    
+    public boolean deleteBoat(int id){
+        Boolean d = getBoat(id).map(boat -> {
+            boatRepository.delete(boat);
+            return true;
+        }).orElse(false);
+        return d;  
+    }
 }
